@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhawal College Portal 2026 | Yeasin Dewan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; }
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: var(--bg); color: #1e293b; scroll-behavior: smooth; }
+        .hero-section { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .custom-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .exam-link:hover { transform: translateY(-5px); border-color: #2563eb; background-color: #f0f7ff; }
+        .timer-unit { background: #1e293b; color: white; padding: 1rem; border-radius: 1rem; min-width: 70px; }
+        .islamic-card { background: #fdfdfd; border-left: 4px solid #059669; }
+        .calc-input, .blood-input { border: 2px solid #e2e8f0; padding: 14px; border-radius: 12px; width: 100%; font-weight: bold; font-size: 1.1rem; }
+        .calc-input:focus, .blood-input:focus { border-color: #2563eb; outline: none; background-color: #f0f7ff; }
+        .marquee-container { background: #fef3c7; border: 1px solid #fcd34d; padding: 10px 0; overflow: hidden; white-space: nowrap; border-radius: 50px; margin-bottom: 25px; }
+        .marquee-text { display: inline-block; padding-left: 100%; animation: marquee 25s linear infinite; font-weight: 700; color: #92400e; }
+        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        .hidden-page { display: none; }
+        .notice-badge { background: #ef4444; color: white; padding: 2px 8px; border-radius: 5px; font-size: 10px; position: absolute; top: -10px; right: 10px; }
+        /* Logo Size Fixed to Professional 80px */
+        .college-logo { width: 80px; height: 80px; object-fit: contain; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="hero-section text-white py-10 px-4 shadow-xl text-center">
+        <div class="max-w-4xl mx-auto">
+            <!-- Professional Small Logo -->
+            <img src="logo.png" alt="Logo" onclick="showHome()" class="cursor-pointer mx-auto mb-4 rounded-full border-2 border-white/20 bg-white p-1 shadow-xl college-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Bhawal_Badre_Alam_Government_College_logo.png/220px-Bhawal_Badre_Alam_Government_College_logo.png'">
+            <h1 class="text-2xl md:text-4xl font-bold mb-1 tracking-tight">ভাওয়াল বদরে আলম সরকারি কলেজ, গাজীপুর</h1>
+            <p id="pageTitle" class="text-blue-300 text-sm md:text-lg font-medium uppercase tracking-widest opacity-80 italic">Student Information Portal - 2026</p>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 -mt-8 mb-16">
+        
+        <!-- HOME PAGE START -->
+        <div id="homePage">
+            <!-- News Headline -->
+            <div class="marquee-container shadow-sm">
+                <div class="marquee-text">
+                    "কারো সফলতায় আপনার রিজিক থেকে একটুও কমবেনা। তাই হিংসা ত্যাগ করা উচিত" &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; "কারো সফলতায় আপনার রিজিক থেকে একটুও কমবেনা। তাই হিংসা ত্যাগ করা উচিত"
+                </div>
+            </div>
+
+            <!-- Exam Selection Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+                <div onclick="showExamPage('hons1st')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-blue-600 relative">
+                    <span class="notice-badge animate-pulse">Update 2026</span>
+                    <div class="bg-blue-100 p-3 rounded-full text-blue-600"><i class="fas fa-user-graduate text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">অনার্স ১ম বর্ষ ভর্তি পরীক্ষা - ২০২৬</h3>
+                </div>
+                <div onclick="showExamPage('honsInternal')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-emerald-600">
+                    <div class="bg-emerald-100 p-3 rounded-full text-emerald-600"><i class="fas fa-file-alt text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">অনার্স ইন-কোর্স ও টেস্ট পরীক্ষা ২০২৬</h3>
+                </div>
+                <div onclick="showExamPage('degree')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-orange-500">
+                    <div class="bg-orange-100 p-3 rounded-full text-orange-600"><i class="fas fa-university text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">ডিগ্রি পাস ও সার্টিফিকেট কোর্স (২০২৬)</h3>
+                </div>
+                <div onclick="showExamPage('masters')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-purple-600">
+                    <div class="bg-purple-100 p-3 rounded-full text-purple-600"><i class="fas fa-award text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">মাস্টার্স প্রিলিমিনারি ও ফাইনাল ২০২৬</h3>
+                </div>
+                <div onclick="showExamPage('hsc')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-red-500">
+                    <div class="bg-red-100 p-3 rounded-full text-red-600"><i class="fas fa-school text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">এইচএসসি বোর্ড পরীক্ষা - ২০২৬</h3>
+                </div>
+                <div onclick="showExamPage('nuNotice')" class="custom-card p-6 flex items-center gap-4 exam-link cursor-pointer border-l-4 border-l-indigo-600">
+                    <div class="bg-indigo-100 p-3 rounded-full text-indigo-600"><i class="fas fa-bullhorn text-2xl"></i></div>
+                    <h3 class="text-lg font-bold">জাতীয় বিশ্ববিদ্যালয়ের সকল নোটিশ</h3>
+                </div>
+            </div>
+
+            <!-- Islamic Bani Section -->
+            <div class="mb-12 space-y-4">
+                <h4 class="text-center text-slate-400 font-bold uppercase tracking-widest text-xs mb-4">ইসলামিক প্রশান্তি</h4>
+                <div class="islamic-card p-6 rounded-xl shadow-sm italic text-slate-700">"নিশ্চয় কষ্টের সাথেই স্বস্তি রয়েছে।" — (সূরা আল-ইনশিরাহ: ০৬)</div>
+                <div class="islamic-card p-6 rounded-xl shadow-sm italic text-slate-700">"আল্লাহর ওপর ভরসা করো, নিশ্চয় আল্লাহ ভরসাকারীদের ভালোবাসেন।" — (সূরা আল-ইমরান: ১৫৯)</div>
+            </div>
+
+            <!-- Blood Donation Section -->
+            <div class="custom-card p-8 md:p-12 mb-12 bg-white border-t-[6px] border-t-red-600 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-4 uppercase tracking-tight">মানবতার সেবায় রক্তদান</h2>
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100 mb-4 text-center">
+                        <p class="text-red-800 font-bold text-xl leading-relaxed">🩸 “যে একজন মানুষের জীবন বাঁচায়, সে যেন সমগ্র মানবজাতিকে বাঁচালো” <br> (সূরা আল-মায়েদা: ৩২)</p>
+                        <p class="text-slate-600 font-bold mt-3 text-lg">আসুন, রক্তদাতা হিসেবে তথ্য দিয়ে এই সওয়াবের অংশীদার হই 🤲</p>
+                    </div>
+                    <p class="text-red-500 font-bold text-xs italic uppercase tracking-wider">আপনার দেওয়া তথ্যসমূহ মানবতার সেবায় বিভিন্ন রক্তদান গ্রুপে শেয়ার করা হতে পারে।</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 shadow-inner">
+                    <form id="bloodForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="Name" required placeholder="আপনার নাম" class="blood-input bg-white shadow-sm">
+                        <select name="BloodGroup" required class="blood-input bg-white">
+                            <option value="">রক্তের গ্রুপ</option>
+                            <option value="A+">A+</option><option value="A-">A-</option>
+                            <option value="B+">B+</option><option value="B-">B-</option>
+                            <option value="O+">O+</option><option value="O-">O-</option>
+                            <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                        </select>
+                        <input type="tel" name="Phone" required placeholder="WhatsApp নম্বর" class="blood-input bg-white shadow-sm">
+                        <input type="text" name="Address" required placeholder="বর্তমান ঠিকানা" class="blood-input bg-white shadow-sm">
+                        <div class="md:col-span-2">
+                            <input type="text" name="LastDonateDate" placeholder="শেষ রক্তদানের তারিখ (ঐচ্ছিক)" class="blood-input bg-white shadow-sm">
+                        </div>
+                        <div class="md:col-span-2 mt-2 text-center">
+                            <button type="submit" id="submitBtn" class="w-full bg-red-600 hover:bg-red-800 text-white font-black py-4 rounded-xl text-lg shadow-lg transition-all transform active:scale-95">রক্তদাতা হিসেবে নিবন্ধন করুন</button>
+                            <!-- Success Message Display -->
+                            <div id="successMsg" class="hidden mt-8 p-8 bg-green-50 border-2 border-green-200 rounded-3xl text-green-700 animate-bounce">
+                                <p class="text-2xl font-black mb-2 tracking-tight">জাযাকাল্লাহ খাইরান 🤍</p>
+                                <p class="text-lg font-bold italic">আপনার তথ্য সফলভাবে গ্রহণ করা হয়েছে।</p>
+                                <p class="font-bold mt-2">আল্লাহ আপনাকে উত্তম প্রতিদান দিন 🤲</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Support Center (Only on Home Page) -->
+            <div id="supportCenter" class="custom-card p-12 text-center border-l-8 border-l-emerald-500 bg-white shadow-xl mb-10">
+                <p class="text-slate-500 font-bold mb-8 uppercase tracking-[0.2em] text-sm tracking-widest">Help & Support Center</p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                    <a href="https://www.facebook.com/share/15j5nFe1Gyf/" target="_blank" rel="noopener noreferrer" class="bg-[#1877F2] text-white px-12 py-4 rounded-full font-black text-xl shadow-lg hover:scale-105 transition-all w-full md:w-auto flex items-center justify-center gap-3">
+                        <i class="fab fa-facebook text-2xl"></i> Facebook
+                    </a>
+                    <a href="https://wa.me/8801823371159" target="_blank" class="bg-white border-2 border-emerald-500 text-emerald-600 px-12 py-4 rounded-full font-black text-xl shadow-lg hover:bg-emerald-50 transition-all w-full md:w-auto flex items-center justify-center gap-3">
+                        <i class="fab fa-whatsapp text-3xl"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- HOME PAGE END -->
+
+        <!-- EXAM CONTENT PAGES -->
+        <div id="examHons1st" class="hidden-page animate-fade">
+            <button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button>
+            <div class="custom-card p-8 md:p-12 mb-8 bg-white text-center border-t-4 border-t-blue-600 shadow-lg">
+                <h2 class="text-xl md:text-3xl font-black text-slate-800 mb-8 uppercase tracking-widest">২০২৬ ভর্তি পরীক্ষার ফলাফল কাউন্টডাউন</h2>
+                <div id="countdown" class="flex flex-wrap justify-center gap-3 mb-8">
+                    <div class="timer-unit shadow-lg"><span id="days" class="text-2xl md:text-5xl font-black block">00</span><span class="text-[10px] opacity-60">দিন</span></div>
+                    <div class="timer-unit shadow-lg"><span id="hours" class="text-2xl md:text-5xl font-black block">00</span><span class="text-[10px] opacity-60">ঘণ্টা</span></div>
+                    <div class="timer-unit shadow-lg"><span id="minutes" class="text-2xl md:text-5xl font-black block">00</span><span class="text-[10px] opacity-60">মিনিট</span></div>
+                    <div class="timer-unit shadow-lg"><span id="seconds" class="text-2xl md:text-5xl font-black block">00</span><span class="text-[10px] opacity-60">সেকেন্ড</span></div>
+                </div>
+                <p class="text-blue-600 font-bold bg-blue-50 py-3 rounded-xl inline-block px-10 border border-blue-100 text-lg">মে মাসের ২০ তারিখের পর সরাসরি এখানে ফলাফল পাবেন।</p>
+            </div>
+            <div class="custom-card p-8 md:p-12 bg-white shadow-lg">
+                <h2 class="text-2xl md:text-3xl font-black text-center mb-10 uppercase tracking-tighter">মেরিট স্কোর ক্যালকুলেটর ২০২৬</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div><label class="text-xs font-bold text-slate-400 uppercase">SSC GPA (× 8)</label><input type="number" id="ssc_gpa" step="0.01" class="calc-input"></div>
+                    <div><label class="text-xs font-bold text-slate-400 uppercase">HSC GPA (× 12)</label><input type="number" id="hsc_gpa" step="0.01" class="calc-input"></div>
+                    <div><label class="text-xs font-bold text-slate-400 uppercase">MCQ Marks</label><input type="number" id="mcq_marks" class="calc-input"></div>
+                </div>
+                <button onclick="calculateScore()" class="w-full bg-blue-600 text-white font-black py-5 rounded-2xl text-xl shadow-xl transition-all">হিসেব করুন</button>
+                <div id="scoreResult" class="hidden mt-8"><div class="bg-slate-900 text-white p-10 rounded-[2.5rem] border-4 border-blue-500/20 text-center"><p class="text-blue-400 font-bold uppercase text-xs mb-3 tracking-widest text-center">সম্ভাব্য মেরিট স্কোর</p><h3 id="finalScore" class="text-6xl md:text-9xl font-black text-center">00.00</h3></div></div>
+            </div>
+        </div>
+
+        <div id="examHonsInternal" class="hidden-page"><button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button><div class="custom-card p-12 bg-white border-l-8 border-l-emerald-600 shadow-lg"><h2 class="text-2xl font-black mb-6 uppercase">ইন-কোর্স রুটিন ২০২৬</h2><p class="text-lg leading-relaxed text-slate-700">অনার্স ২য় ও ৩য় বর্ষের ২০২৩-২৪ সেশনের শিক্ষার্থীদের ইন-কোর্স নম্বর আগামী ১০ জুন ২০২৬ এর মধ্যে বিভাগে জমা হবে। বিস্তারিত বিভাগীয় নোটিশ বোর্ডে দেখুন।</p></div></div>
+
+        <div id="examDegree" class="hidden-page"><button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button><div class="custom-card p-12 bg-white border-l-8 border-l-orange-500 shadow-lg"><h2 class="text-2xl font-black mb-6 uppercase">ডিগ্রি আপডেট ২০২৬</h2><p class="text-lg leading-relaxed text-slate-700">ডিগ্রি ৩য় বর্ষের চূড়ান্ত পরীক্ষার ফরম পূরণ মে মাসের শেষ সপ্তাহ থেকে শুরু হতে পারে। বকেয়া বেতন পরিশোধের পরামর্শ দেওয়া হয়েছে।</p></div></div>
+
+        <div id="examMasters" class="hidden-page"><button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button><div class="custom-card p-12 bg-white border-l-8 border-l-purple-600 shadow-lg"><h2 class="text-2xl font-black mb-6 uppercase">মাস্টার্স আপডেট ২০২৬</h2><p class="text-lg leading-relaxed text-slate-700 font-bold text-purple-800 tracking-tight">🎤 ভাইভা নোটিশ: ২০২১ সেশনের মাস্টার্স শেষ পর্বের মৌখিক পরীক্ষা আগামী জুলাই মাসের প্রথম সপ্তাহে অনুষ্ঠিত হতে পারে।</p></div></div>
+
+        <div id="examHSC" class="hidden-page"><button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button><div class="custom-card p-12 bg-white border-l-8 border-l-red-600 shadow-lg"><h2 class="text-2xl font-black mb-6 uppercase">এইচএসসি ২০২৬ আপডেট</h2><p class="text-lg leading-relaxed text-slate-700 font-bold text-red-600">এইচএসসি বোর্ড পরীক্ষা ৩০ জুন ২০২৬ থেকে শুরু হবে। প্রবেশপত্র মে মাসের শেষ সপ্তাহে বিতরণ করা হবে।</p></div></div>
+
+        <div id="examNU" class="hidden-page"><button onclick="showHome()" class="mb-6 text-blue-600 font-bold flex items-center gap-2"><i class="fas fa-arrow-left"></i> ফিরে যান</button><div class="custom-card p-12 bg-white text-center shadow-lg"><h2 class="text-2xl font-black mb-8 uppercase text-indigo-700">NU নোটিশ বোর্ড (Official)</h2><a href="http://www.nu.ac.bd/notice" target="_blank" rel="noopener noreferrer" class="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black text-xl inline-block shadow-lg">অফিসিয়াল সাইট ভিজিট করুন</a></div></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-500 py-10 px-6 border-t border-slate-800 text-center mt-auto">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-[11px] font-bold tracking-[0.3em] uppercase italic text-center text-slate-600">
+                @ All right reserved by Yeasin Dewan
+            </p>
+        </div>
+    </footer>
+
+    <!-- Statcounter -->
+    <script type="text/javascript">
+    var sc_project=13224101; var sc_invisible=0; var sc_security="e22926d9"; var scJsHost = "https://";
+    document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
+    </script>
+
+    <script>
+        // --- Page Navigation Logic ---
+        function showExamPage(pageId) {
+            document.getElementById('homePage').style.display = 'none';
+            document.querySelectorAll('.hidden-page').forEach(p => p.style.display = 'none');
+            const pageMap = {'hons1st':'examHons1st','honsInternal':'examHonsInternal','degree':'examDegree','masters':'examMasters','hsc':'examHSC','nuNotice':'examNU'};
+            document.getElementById(pageMap[pageId]).style.display = 'block';
+            document.getElementById('pageTitle').innerText = "Exam Information 2026";
+            window.scrollTo(0, 0);
+        }
+        function showHome() {
+            document.getElementById('homePage').style.display = 'block';
+            document.querySelectorAll('.hidden-page').forEach(p => p.style.display = 'none');
+            document.getElementById('pageTitle').innerText = "Digital Student Portal - 2026";
+            window.scrollTo(0, 0);
+        }
+
+        // --- Countdown Timer ---
+        const targetDate = new Date("May 20, 2026 00:00:00").getTime();
+        setInterval(function() {
+            const dist = targetDate - new Date().getTime();
+            document.getElementById("days").innerText = Math.max(0, Math.floor(dist / (1000 * 60 * 60 * 24)));
+            document.getElementById("hours").innerText = Math.max(0, Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            document.getElementById("minutes").innerText = Math.max(0, Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)));
+            document.getElementById("seconds").innerText = Math.max(0, Math.floor((dist % (1000 * 60)) / 1000));
+        }, 1000);
+
+        // --- Calculator ---
+        function calculateScore() {
+            const ssc = parseFloat(document.getElementById('ssc_gpa').value) || 0;
+            const hsc = parseFloat(document.getElementById('hsc_gpa').value) || 0;
+            const mcq = parseFloat(document.getElementById('mcq_marks').value) || 0;
+            if(ssc > 5 || hsc > 5) { alert("GPA ৫.০০ এর বেশি হতে পারে না!"); return; }
+            const total = (ssc * 8) + (hsc * 12) + mcq;
+            document.getElementById('finalScore').innerText = total.toFixed(2);
+            document.getElementById('scoreResult').classList.remove('hidden');
+        }
+
+        // --- Google Sheet Blood Data Submission ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzHK6QbQJaqo29FM5N6GlikIZoMBUu2i8TnDf34HfewkRsoSEhsI-a5Ytavqw9SdFhAoQ/exec';
+        const form = document.getElementById('bloodForm');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true; btn.innerText = "প্রসেসিং হচ্ছে...";
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(res => {
+                document.getElementById('successMsg').classList.remove('hidden');
+                form.reset(); btn.disabled = false; btn.innerText = "রক্তদাতা হিসেবে নিবন্ধন করুন";
+            })
+            .catch(err => alert('ত্রুটি হয়েছে! আবার চেষ্টা করুন।'));
+        });
+    </script>
+</body>
+</html>
